@@ -20,7 +20,7 @@ set $wm_setting_key_up               Up
 set $wm_setting_key_right            Right
 
 ### Load X resources colors ###
-exec --no-startup-id xrdb -merge ~/.Xresources
+#exec --no-startup-id xrdb -merge ~/.Xresources
 set_from_resource $wm_color_border_active_bg       color1    #81A1C1
 set_from_resource $wm_color_border_active_fg       color2    #3B4252
 set_from_resource $wm_color_border_inactive_bg     color3    #3B4252
@@ -29,11 +29,9 @@ set_from_resource $wm_color_background             color0    #2E3440
 
 ### Applications ###
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 bindsym $mod+Shift+Return exec firefox
-bindsym $mod+Alt+Return yazi
-bindsym $mod+Ctrl+Return ne
-bindsym $mod+a+Return exec rofi
+bindsym $mod+d exec wmenu-run
 
 ### Workspaces ###
 

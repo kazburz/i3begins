@@ -1,3 +1,3 @@
-WALLPAPER_DIR=~/.config/i3/walls
+WALLPAPER_DIR=/usr/share/backgrounds/archlinux/
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
 wal -i "$WALLPAPER" --backend feh

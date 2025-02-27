@@ -1,3 +1,5 @@
-WALLPAPER_DIR=/usr/share/backgrounds/archlinux/
-WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
-wal -i "$WALLPAPER" --backend feh
+
+wal -i ~/.config/i3/wals/warch -n --backend colorthief
+
+feh --bg-tile "$(< "${HOME}/.cache/wal/wal")"  
+

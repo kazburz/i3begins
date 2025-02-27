@@ -19,4 +19,4 @@ https://github.com/pablocorbalann/arch-minimal-wallpapers.git
 
 #Programs 
 
-yay -S unzip fzf yazi python-pywal16 python-wpgtk picom kitty 
+yay -S unzip fzf yazi python-pywal16 python-wpgtk picom kitty autotiling

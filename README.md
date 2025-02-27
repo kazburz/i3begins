@@ -12,8 +12,11 @@ ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
 #Icons
 
 yay -S ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
-papirus-icon-theme tela-icon-theme colloid-icon-theme flat-remix-icon-theme qogir-icon-theme reversal-icon-theme kora-icon-theme newaita-icons paper-icon-theme luv-icon-theme
-
+papirus-icon-theme 
 #wallpapers
 
 https://github.com/pablocorbalann/arch-minimal-wallpapers.git
+
+#Programs 
+
+yay -S unzip fzf yazi python-pywal16 python-wpgtk picom kitty 

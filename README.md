@@ -20,3 +20,10 @@ https://github.com/pablocorbalann/arch-minimal-wallpapers.git
 #Programs 
 
 yay -S unzip fzf yazi python-pywal16 python-wpgtk picom kitty autotiling
+
+git clone https://github.com/vivien/i3blocks
+cd i3blocks
+./autogen.sh
+./configure
+make
+make install

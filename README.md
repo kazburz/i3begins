@@ -7,7 +7,7 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 yay -S ttf-mplus-nerd ttf-anonymouspro-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
 ttf-victor-mono-nerd ttf-tamzen-nerd ttf-terminus-nerd ttf-3270-nerd ttf-tewi-nerd ttf-iosevka-nerd ttf-mononoki-nerd
 ttf-fira-code-nerd ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-cascadia-code-nerd
-ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
+ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd
 
 #Icons
 

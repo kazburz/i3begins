@@ -20,7 +20,12 @@ set $wm_setting_key_up               Up
 set $wm_setting_key_right            Right
 
 ### Load X resources colors ###
-#exec --no-startup-id xrdb -merge ~/.Xresources
+
+exec --no-startup-id picom
+exec --no-startup-id wal -R
+exec --no-startup-id autotiling
+exec --no-startup-id xrdb -merge ~/.Xresources
+
 set_from_resource $wm_color_border_active_bg       color1    #81A1C1
 set_from_resource $wm_color_border_active_fg       color2    #3B4252
 set_from_resource $wm_color_border_inactive_bg     color3    #3B4252
@@ -29,7 +34,7 @@ set_from_resource $wm_color_background             color0    #2E3440
 
 ### Applications ###
 
-bindsym $mod+Return exec foot
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec firefox
 bindsym $mod+d exec wmenu-run
 
@@ -149,3 +154,15 @@ bindsym $mod+$smod+r restart
 
 # Exit i3 (logs you out of your X session)
 bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+bar {
+    position top
+    font pango:VictorMono Nerd Font 10
+    status_command i3blocks
+    colors {
+        background $wm_color_background
+        statusline $wm_color_border_active_fg
+        separator $wm_color_border_inactive_bg
+    }
+}

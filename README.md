@@ -16,3 +16,4 @@ papirus-icon-theme tela-icon-theme colloid-icon-theme flat-remix-icon-theme qogi
 
 #wallpapers
 
+https://github.com/pablocorbalann/arch-minimal-wallpapers.git

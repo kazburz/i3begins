@@ -1,15 +1,21 @@
-#  _  __
-# | |/ /__ _ ___ _ __   ___ _ __
-# | ' // _` / __| '_ \ / _ \ '__|
-# | . \ (_| \__ \ |_) |  __/ |
-# |_|\_\__,_|___/ .__/ \___|_|
-#              |_|
+                                               
 
 
+### MainKeyBinds ###
 
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec firefox
+bindsym $mod+d+Return exec rofi
+#bindsym $mod+d+Return exec rofi
+#bindsym $mod+d+Return exec rofi
+bindsym $mod+f fullscreen toggle
+bindsym $mod+$smod+f floating toggle
+bindsym $mod+$smod+q kill
+bindsym $mod+$smod+r restart
+bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+### Variables ###
 
-### Variables for settings (This makes changing them WAY easier!) ###
 set $mod                             Mod4
 set $smod                            Shift
 set $wm_setting_font                 pango:Source Sans Pro, Semibold 11
@@ -19,24 +25,20 @@ set $wm_setting_key_down             Down
 set $wm_setting_key_up               Up
 set $wm_setting_key_right            Right
 
-### Load X resources colors ###
+### StartUp ###
 
 exec --no-startup-id picom
 exec --no-startup-id wal -R
 exec --no-startup-id autotiling
 exec --no-startup-id xrdb -merge ~/.Xresources
 
+### Pywal Colors < 3 ###
+
 set_from_resource $wm_color_border_active_bg       color1    #81A1C1
 set_from_resource $wm_color_border_active_fg       color2    #3B4252
 set_from_resource $wm_color_border_inactive_bg     color3    #3B4252
 set_from_resource $wm_color_border_inactive_fg     color4    #D8DEE9
 set_from_resource $wm_color_background             color0    #2E3440
-
-### Applications ###
-
-bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec firefox
-bindsym $mod+d exec wmenu-run
 
 ### Workspaces ###
 
@@ -52,6 +54,7 @@ set $ws9  "    9    "
 set $ws10 "    10    "
 
 # Switch to workspace n
+
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -64,6 +67,7 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # Move focused container to workspace n
+
 bindsym $mod+$smod+1 move container to workspace $ws1
 bindsym $mod+$smod+2 move container to workspace $ws2
 bindsym $mod+$smod+3 move container to workspace $ws3
@@ -76,36 +80,26 @@ bindsym $mod+$smod+9 move container to workspace $ws9
 bindsym $mod+$smod+0 move container to workspace $ws10
 
 ### Window sizes and positions ###
-# Change focus
+
 bindsym $mod+$wm_setting_key_left        focus left
 bindsym $mod+$wm_setting_key_down        focus down
 bindsym $mod+$wm_setting_key_up          focus up
 bindsym $mod+$wm_setting_key_right       focus right
 
 # Move focused window
+
 bindsym $mod+$smod+$wm_setting_key_left  move left
 bindsym $mod+$smod+$wm_setting_key_down  move down
 bindsym $mod+$smod+$wm_setting_key_up    move up
 bindsym $mod+$smod+$wm_setting_key_right move right
 
-# Resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
+    
     bindsym $wm_setting_key_left  resize shrink width 10 px or 10 ppt
     bindsym $wm_setting_key_down  resize grow height 10 px or 10 ppt
     bindsym $wm_setting_key_up    resize shrink height 10 px or 10 ppt
     bindsym $wm_setting_key_right resize grow width 10 px or 10 ppt
-
-    # Resize the gap width and height
-    bindsym $smod+$wm_setting_key_left  gaps horizontal minus 5
-    bindsym $smod+$wm_setting_key_down  gaps horizontal plus 5
-    bindsym $smod+$wm_setting_key_up    gaps vertical minus 5
-    bindsym $smod+$wm_setting_key_right gaps vertical plus 5
 
     # Back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
@@ -113,7 +107,7 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+
 
 ### Gaps ###
 gaps inner 10
@@ -136,33 +130,8 @@ client.background       $wm_color_background
 ### Miscellaneous settings ###
 # Set the font used for titlebars (which are hidden here)
 font $wm_setting_font
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Enter fullscreen mode for the focused window
-bindsym $mod+f fullscreen toggle
-
-# Toggle between tiling and floating
-bindsym $mod+$smod+f floating toggle
-
-# Kill the focused window
-bindsym $mod+$smod+q kill
-
-# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+$smod+r restart
-
-# Exit i3 (logs you out of your X session)
-bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 
-bar {
-    position top
-    font pango:VictorMono Nerd Font 10
-    status_command i3blocks
-    colors {
-        background $wm_color_background
-        statusline $wm_color_border_active_fg
-        separator $wm_color_border_inactive_bg
-    }
-}
